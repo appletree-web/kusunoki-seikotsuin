@@ -1,0 +1,201 @@
+/* くすの木整骨院 共通スタイル
+   基調色: くすの木の深緑 / スマホ最優先(640px基準) */
+
+:root {
+  --green: #2d5b3f;        /* 基調の深緑 */
+  --green-dark: #234a32;   /* 濃い緑(見出し・フッター) */
+  --green-soft: #eef4ec;   /* 淡い緑(帯・パネル) */
+  --ink: #22302a;          /* 本文 */
+  --ink-soft: #5a6a60;     /* 補足文 */
+  --paper: #ffffff;
+  --line-green: #06c755;   /* LINEボタン(ブランド色) */
+  --closed: #a6503c;       /* お休み表示 */
+  --border: #d8e2d6;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    "Yu Gothic Medium", "Yu Gothic", "Noto Sans JP", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 16px;
+  line-height: 1.9;
+  padding-bottom: 84px; /* 画面下の追従ボタンの分 */
+}
+
+a { color: var(--green); }
+img { max-width: 100%; height: auto; display: block; }
+a:focus-visible { outline: 3px solid #1a6fb0; outline-offset: 2px; }
+
+.inner { max-width: 640px; margin: 0 auto; }
+
+/* ① 最初の画面 */
+.hero { padding: 20px 20px 30px; }
+.clinic-name {
+  font-size: 15px; font-weight: 700; letter-spacing: .06em;
+  color: var(--green); margin: 0 0 14px;
+}
+.catch {
+  font-size: 25px; line-height: 1.55; font-weight: 700;
+  margin: 0 0 18px; color: var(--green-dark);
+}
+
+/* 今日の受付(自動表示) */
+.today {
+  background: var(--green-soft);
+  border-left: 5px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  margin: 0 0 18px;
+}
+.today-label { display: block; font-size: 12px; color: var(--ink-soft); }
+.today strong { font-size: 19px; color: var(--green-dark); }
+.today.is-closed { border-left-color: var(--closed); }
+.today.is-closed strong { color: var(--closed); }
+
+/* ボタン(①と②で共通) */
+.actions { display: flex; gap: 10px; }
+.btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 52px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700; font-size: 16px; color: #fff;
+}
+.btn-tel { background: var(--green); }
+.btn-line { background: var(--line-green); }
+.btn:active { opacity: .85; }
+.btn:focus-visible { outline: 3px solid #1a6fb0; outline-offset: 2px; }
+
+.hero .actions { margin-bottom: 20px; }
+
+/* 写真(準備中の仮枠を含む) */
+.hero-photo, .director-photo { margin: 0; position: relative; }
+.photo-pending {
+  background: var(--green-soft);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  min-height: 190px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft); font-size: 13px;
+}
+.hero-photo img, .director-photo img { border-radius: 8px; }
+.photo-note {
+  position: absolute; right: 8px; bottom: 6px;
+  font-size: 11px; color: var(--ink-soft);
+  background: rgba(255, 255, 255, .8);
+  padding: 1px 6px; border-radius: 4px;
+}
+
+/* ② 画面下の追従ボタン */
+.stickybar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  display: flex; gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, .96);
+  border-top: 1px solid var(--border);
+}
+.stickybar .btn { min-height: 48px; }
+
+/* 共通のセクション */
+.section { padding: 36px 20px; }
+.section-tint { background: var(--green-soft); }
+.section h2 { font-size: 20px; line-height: 1.5; margin: 0 0 20px; }
+.section h2::after {
+  content: ""; display: block;
+  width: 34px; height: 4px; border-radius: 2px;
+  background: var(--green); margin-top: 8px;
+}
+.textlink { font-weight: 700; }
+
+/* ③ 症状カード */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  text-decoration: none; color: var(--ink);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.card-title { font-weight: 700; font-size: 15px; color: var(--green-dark); }
+.card-scene { font-size: 13px; color: var(--ink-soft); flex: 1; }
+.card-more { font-size: 13px; font-weight: 700; color: var(--green); }
+
+/* ④ 特徴3つ */
+.features { margin: 0; }
+.features > div { padding: 14px 0; border-bottom: 1px solid var(--border); }
+.features > div:last-child { border-bottom: 0; }
+.features dt { font-weight: 700; margin-bottom: 4px; }
+.features dd { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+/* ⑤ 院長紹介 */
+.director-photo { margin-bottom: 14px; }
+.director-photo .photo-pending { min-height: 200px; }
+.director-name { font-weight: 700; margin: 0 0 10px; }
+.history { list-style: none; padding: 0; margin: 0 0 16px; font-size: 15px; }
+.history li { position: relative; padding-left: 14px; }
+.history li::before {
+  content: ""; position: absolute; left: 0; top: .8em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+}
+.director-message {
+  margin: 0; background: var(--green-soft);
+  border-radius: 8px; padding: 16px;
+}
+.director-message p { margin: 0; }
+
+/* ⑥ 料金の目安 */
+.price-line { font-weight: 700; font-size: 17px; }
+
+/* ⑦ 受付時間 */
+.hours-table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--paper); }
+.hours-table th, .hours-table td {
+  border: 1px solid var(--border);
+  padding: 10px 6px; text-align: center;
+}
+.hours-table thead th, .hours-table tbody th {
+  background: var(--green-soft); font-weight: 700; white-space: nowrap;
+}
+.section-tint .hours-table thead th,
+.section-tint .hours-table tbody th { background: #e2ecdf; }
+.holiday-note { margin: 12px 0 0; }
+
+/* ⑧ アクセス */
+.address { margin: 0 0 12px; }
+.access-list { list-style: none; padding: 0; margin: 0 0 4px; font-size: 15px; }
+.access-list li { position: relative; padding-left: 14px; }
+.access-list li::before {
+  content: ""; position: absolute; left: 0; top: .8em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+}
+.map { border-radius: 8px; overflow: hidden; margin: 14px 0 12px; border: 1px solid var(--border); }
+.map iframe { width: 100%; height: 260px; border: 0; display: block; }
+
+/* ⑨ よくある質問 */
+.faq { margin: 0; }
+.faq dt { font-weight: 700; margin: 18px 0 4px; }
+.faq dt:first-of-type { margin-top: 0; }
+.faq dd { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+/* ⑩ 一番下 */
+.footer { background: var(--green-dark); color: #e9f1ea; padding: 36px 20px 30px; }
+.footer a { color: #ffffff; }
+.footer-name { font-weight: 700; font-size: 17px; margin: 0 0 8px; }
+.footer p { margin: 0 0 8px; font-size: 14px; }
+.footer-nav {
+  display: flex; flex-wrap: wrap; gap: 6px 16px;
+  margin: 14px 0; font-size: 14px;
+}
+
+/* 画面が広いとき */
+@media (min-width: 720px) {
+  .catch { font-size: 30px; }
+  .cards { grid-template-columns: repeat(4, 1fr); }
+  .hero { padding-top: 32px; }
+}
