@@ -18,6 +18,12 @@
   .btn-line { background: #06c755; }
   .note { font-size: 13px; color: #5a6a60; }
 </style>
+<script>
+/* 計測: 本番ドメインのときだけ共通の計測ファイルを読み込む(このページはどの階層でも表示されるため、読み込み先は最上位に固定) */
+if (/(^|\.)kusunoki-seikotsuin\.com$/.test(location.hostname)) {
+  var k = document.createElement("script"); k.src = "/keisoku.js"; document.head.appendChild(k);
+}
+</script>
 </head>
 <body>
 <div class="inner">
