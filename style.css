@@ -35,6 +35,9 @@ a:focus-visible { outline: 3px solid #1a6fb0; outline-offset: 2px; }
 
 /* ① 最初の画面 */
 .hero { padding: 20px 20px 30px; }
+.area { font-size: 13px; color: var(--ink-soft); margin: 0 0 4px; }
+.line-note { font-size: 13px; color: var(--ink-soft); margin: 0 0 18px; line-height: 1.6; }
+.footer .line-note { color: #c9d8cc; margin: 6px 0 0; }
 .clinic-name {
   font-size: 15px; font-weight: 700; letter-spacing: .06em;
   color: var(--green); margin: 0 0 14px;
@@ -72,7 +75,7 @@ a:focus-visible { outline: 3px solid #1a6fb0; outline-offset: 2px; }
 .btn:active { opacity: .85; }
 .btn:focus-visible { outline: 3px solid #1a6fb0; outline-offset: 2px; }
 
-.hero .actions { margin-bottom: 20px; }
+.hero .actions { margin-bottom: 8px; }
 
 /* 写真(準備中の仮枠を含む) */
 .hero-photo, .director-photo { margin: 0; position: relative; }
