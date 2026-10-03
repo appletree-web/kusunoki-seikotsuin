@@ -228,6 +228,8 @@ h1 .phrase { display: inline-block; }
 .flow li { margin-bottom: 10px; }
 .flow .flow-title { font-weight: 700; }
 .flow p { margin: 2px 0 0; font-size: 15px; color: var(--ink-soft); }
+.step-photo { margin: 6px 0 14px; position: relative; }
+.step-photo img { border-radius: 8px; width: 100%; }
 .symptom-photo { margin: 18px 0 0; position: relative; }
 .symptom-photo img { border-radius: 8px; }
 /* 問診写真(横長)は症状ページでは4:3で切り抜いて表示(2人が収まる位置) */
