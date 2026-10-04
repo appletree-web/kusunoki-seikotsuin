@@ -1,6 +1,7 @@
 /* くすの木整骨院 計測(アクセス解析)
    ・本番ドメイン(kusunoki-seikotsuin.com)で開いたときだけ動く。仮の場所では何もしない
    ・記録するもの: 見られたページ / 電話ボタンのタップ(tel_cv) / LINEボタンのタップ(line_cv)
+   ・Google広告のタグ(AW-18493516681)も同じ仕組みで読み込む。広告からの来院者の動きを数えるため
    ・tel_cv と line_cv は旧HPの計測と同じ名前(切替の前後を同じ表で比べるため)
    ・button_place: どこのボタンが押されたか */
 (function () {
@@ -13,6 +14,8 @@
   window.gtag = gtag;
   gtag("js", new Date());
   gtag("config", ID);
+   var AW = "AW-18493516681";   /* Google広告のタグ */
+   gtag("config", AW);
 
   var s = document.createElement("script");
   s.async = true;
